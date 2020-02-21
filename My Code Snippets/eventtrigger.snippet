@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>eventtrigger</Title>
+            <Shortcut>eventtrigger</Shortcut>
+            <Description>Event Trigger</Description>
+            <Author>Carl Ericsson</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>name</ID>
+                    <ToolTip>The name of the trigger method</ToolTip>
+                    <Default>PropertyChanged</Default>
+                </Literal>
+                    <Literal>
+                    <ID>triggerargType</ID>
+                    <ToolTip>The argument type for the trigger</ToolTip>
+                    <Default>string</Default>
+                </Literal>
+                <Literal>
+                    <ID>triggerarg</ID>
+                    <ToolTip>The argument name for the trigger</ToolTip>
+                    <Default>propertyName</Default>
+                </Literal>
+                <Literal>
+                    <ID>eventname</ID>
+                    <ToolTip>The event to trigger</ToolTip>
+                    <Default>PropertyChanged</Default>
+                </Literal>
+                <Literal>
+                    <ID>eventargs</ID>
+                    <ToolTip>The event args to send</ToolTip>
+                    <Default>PropertyChangedEventArgs</Default>
+                </Literal>
+            </Declarations>
+
+            <Code Language="csharp"><![CDATA[private void Trigger$name$($triggerargType$ $triggerarg$)
+    {
+        var pc = $eventname$;
+
+        if (pc != null)
+        {
+            pc.Invoke(this, new $eventargs$($triggerarg$));$end$
+        }
+    }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>proptrigger</Title>
+            <Shortcut>proptrigger</Shortcut>
+            <Description>Property with Event Trigger</Description>
+            <Author>Carl Ericsson</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>The type of the property</ToolTip>
+                    <Default>string</Default>
+                </Literal>
+                <Literal>
+                    <ID>name</ID>
+                    <ToolTip>The name of the property</ToolTip>
+                    <Default>MyProp</Default>
+                </Literal>                                    
+            </Declarations>
+
+            <Code Language="csharp"><![CDATA[private $type$ m_$name$;
+
+        public $type$ $name$
+        {
+            get { return m_$name$; }
+            set
+            {
+                if (m_$name$ != value)
+                {
+                    m_$name$ = value;
+                    TriggerPropertyChanged("$name$");$end$
+                }
+            }
+        }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

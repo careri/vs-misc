@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>struct Equality</Title>
+      <Author>Carl Ericsson</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>struct_eq</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <ToolTip>The struct type</ToolTip>
+          <Function>ClassName()</Function>          
+        </Literal>        
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[public override bool Equals(object obj)
+        {
+            if (obj is $type$)
+            {
+                return this.GetHashCode().Equals(obj.GetHashCode());
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public static bool operator ==($type$ d1, $type$ d2)
+        {
+            return d1.Equals(d2);
+        }
+
+        public static bool operator !=($type$ d1, $type$ d2)
+        {
+            return !d1.Equals(d2);
+        }$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

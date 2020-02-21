@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>lazy_field</Title>
+      <Author>Carl Ericsson</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>flazy</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <ToolTip>The lazy type</ToolTip>
+          <Default>type</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <ToolTip>The name of the lazy property</ToolTip>
+          <Default>name</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>initcode</ID>
+          <ToolTip>The init code</ToolTip>
+          <Default>throw new NotImplementedException()</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Method</ID>
+          <ToolTip>Method</ToolTip>
+          <Default>Method</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[private readonly Lazy<$type$> m_$name$;
+
+private void CopyToCtor()
+{
+    m_$name$ = new Lazy<$type$>(Init_$name$, true);
+}
+
+private $type$ Init_$name$()
+{
+    $initcode$$end$
+}
+
+public $type$ $name$ { get { return m_$name$.Value; } }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

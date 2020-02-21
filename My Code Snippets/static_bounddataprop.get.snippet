@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>bounddataprop.static.get</Title>
+      <Author>Carl Ericsson</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>bdpsget</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Object Editable="true">
+          <ID>argtype</ID>
+          <ToolTip>The type of the argument needed to retireve the data</ToolTip>
+          <Default>Type</Default>
+          <Function>
+          </Function>
+          <Type>
+          </Type>
+        </Object>
+        <Literal Editable="true">
+          <ID>argname</ID>
+          <ToolTip>The name of the argument</ToolTip>
+          <Default>name</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Object Editable="true">
+          <ID>returntype</ID>
+          <ToolTip>The return type</ToolTip>
+          <Default>Type</Default>
+          <Function>
+          </Function>
+          <Type>
+          </Type>
+        </Object>
+        <Literal Editable="true">
+          <ID>method</ID>
+          <ToolTip>The name of the method</ToolTip>
+          <Default>Method</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>getimpl</ID>
+          <ToolTip>The implementation of the get logic</ToolTip>
+          <Default>throw new NotImplementedException();</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>access</ID>
+          <ToolTip>access</ToolTip>
+          <Default>internal</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[private static readonly BoundDataProperty<$argtype$, $returntype$> s_$method$ =
+    BoundDataProperty.NewStatic<$argtype$, $returntype$>(Get$method$);
+
+    private static $returntype$ Get$method$($argtype$ $argname$)
+    {
+        $getimpl$$end$
+    }
+
+    $access$ static $returntype$ $method$($argtype$ $argname$)
+    {
+        return s_$method$.ReadValue($argname$);
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
